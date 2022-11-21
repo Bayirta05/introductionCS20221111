@@ -3,7 +3,13 @@
 причем X ≠ 0 и Y ≠ 0
 */
 //тип имя(аргумент)
-int Part(double x, double y)
+
+//Пример NET
+class Program
+{
+
+
+static int Part(double x, double y)
 {
     //тело подпрограммы
     
@@ -14,15 +20,24 @@ int Part(double x, double y)
     return 0;
 }
 
-void Pause()
+static void Pause()
 {
     System.Console.WriteLine("Press any key");
-    Console.ReaKey();
+    Console.ReadKey();
 }
 
-double x=Convert.ToDouble(Console.ReadLine());
-double y=Convert.ToDouble(Console.ReadLine());
-Part(x,y);
-System.Console.WriteLine("Part:"+Part(x,y));
-
-Pause()
+static void Pause(string message)//перегрузка по аргументам
+{
+    System.Console.WriteLine(message);
+    Console.ReadKey();
+}
+    static void Main()
+    {
+        double x=Convert.ToDouble(Console.ReadLine());
+        double y=Convert.ToDouble(Console.ReadLine());
+        Part(x,y);
+        System.Console.WriteLine("Part:"+Part(x,y));
+        Program program=new Program();
+        program.Pause();
+    }
+}
