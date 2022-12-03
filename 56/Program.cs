@@ -22,11 +22,12 @@ void NewArr(ref int a,ref int b)
     b=a;
 }
 
-void CopyArr(int[] a)
+int CopyArr(int[] a)
 {
     int[] copy=new int[a.Length];
     for(int i=0;i<a.Length;i++)
         NewArr(ref a[i],ref copy[i]);
+    return CopyArr;
 }
 
 void PrintCopy(int[] copy)
@@ -37,6 +38,6 @@ void PrintCopy(int[] copy)
 
 int[] a=RandomIntArray(3,-5,5);
 PrintArray(a);
-CopyArr(a);
+int[] b=CopyArr(3,-5,5);
 System.Console.WriteLine();
-PrintCopy(a);
+PrintCopy(b);
