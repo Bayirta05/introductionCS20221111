@@ -1,29 +1,13 @@
 ﻿//84. Определить являются ли введенные с клавиатуры символы правильно записью целого числа.
 //Вычислить сумму цифр введенного числа
 
-int SumDigits(int n)
-{
-    int sum=0;
-    n=Math.Abs(n);
-    while(n!=0)
-    {
-        sum=sum+n%10;
-        n=n/10;
-    }
-    return sum;
+int SumDigit(int n)
+ {
+    if (n==0) return 0;
+    else
+    return SumDigit(n/10)+n%10;
 }
 
 string s=Console.ReadLine();
-int n;
-bool flag=int.TryParse(s,out n);
-if (flag)
-{
-    
-    // foreach(char c in s)
-    //   if (char.IsDigit(c))
-    //   //sum=sum+(int)char.GetNumericValue(c);
-    //   sum=sum+(c-'0');
-    System.Console.WriteLine($"{SumDigits(n)}");
-
-} 
-else System.Console.WriteLine("Wrong number");
+int n=Convert.ToInt32(s);
+System.Console.WriteLine(SumDigit(n));
